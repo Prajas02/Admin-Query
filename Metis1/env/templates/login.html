@@ -1,0 +1,32 @@
+<!-- importing the base template-->
+{% extends "base.html" %}
+
+{% block content %}
+
+<!--Login Form -->
+
+<div class="form-container">
+  <form class="form">
+    <h2 class="heading">Login As Admin</h2>
+    <div class="mb-3 input-comps">
+      <input type="email" name="email" class="comps" id="LogInEmail" placeholder="Email">
+    </div>
+    <div class="mb-3 input-comps">
+      <input type="password" class="comps" placeholder="Password" id="LogInPassword">
+    </div>
+    <div style="text-align: center; margin-top: 30px ;">
+      <button type="submit" id="userloginbtn" class="userloginbtn">Login</button>
+    </div>
+  </form>
+</div>
+
+<!--creating a popup if an error occurs-->
+<div class="popup" id="popup">
+  <div class="modal-header">
+    <div class="messageTitle" id="messageTitle"></div>
+    <button type="button" id="closeBtn">&times;</button>
+  </div>
+  <div class="messageBody" id="messageBody"></div>
+</div>
+
+{%endblock%}

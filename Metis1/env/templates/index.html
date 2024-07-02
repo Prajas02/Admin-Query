@@ -1,0 +1,49 @@
+<!-- importing the base template-->
+{% extends "base.html" %} 
+
+{% block content %}
+
+<!-- form component-->
+<div class="form-container">
+  <form class="form" action="/query" id="myform" method="post">
+    <h2 class="heading">Enter Your Query</h2>
+    <div class="input-comps">
+      <input type="text" name="fname" id="fname" class="comps" placeholder="First Name">
+    </div>
+    <div class="input-comps">
+      <input type="text" name="lname" id="lname" class="comps" placeholder="Last Name">
+    </div>
+    <div class="input-comps">
+      <input type="email" name="email" id="email" class="comps" placeholder="Email">
+    </div>
+    <div class="input-comps">
+      <input type="number" name="rnum" id="rnum" class="comps number" placeholder="Roll Number">
+    </div>
+    <div class="input-comps">
+      <textarea name="describe" id="describe" class="comps describe" placeholder="Describe Your Issue"></textarea>
+    </div>
+    <div class="input-comps">
+      <button type="button" id="submit">Submit</button>
+    </div>
+  </form>
+</div>
+
+<!-- pop up after submission of form-->
+<div class="popup" id="submitPopup">
+  <div class="modal-header">
+    <div class="messageTitle" id="messageTitle"></div>
+    <button type="button" id="closeBtn">&times;</button>
+  </div>
+  <div class="messageBody" id="messageBody">
+  </div>
+</div>
+
+<!-- Javascript for getting the login button apper after redirecting to this page-->
+<script>
+  document.addEventListener('DOMContentLoaded' , function(){
+    if(window.location.href.indexOf('/') !== -1){
+      document.getElementById('loginbtn').style.display = 'block'
+    }
+  })
+</script>
+{%endblock%}
