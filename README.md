@@ -5,7 +5,6 @@ A real-world web app for IIT Gandhinagar students to give in their queries, whic
 
 - Implemented Features;
 - Usage;
-- Organisation;
 - Contact;
 
 ## Features 
@@ -27,9 +26,6 @@ The app's UI is minimalistic, allowing clients to provide their queries. The req
 1. The admin has to log in with his/her account by giving correct credentials.
 2. To resolve the query, the admin has to type in the message in the resolve modal; this message will automatically go to the student at his given email address.
 3. To delete a query from the database, the admin can use the delete functionality.
-   
-## Organisation 
-The project was done under the IIT Gandhinagar Metis Summer Project.
 
 ## Contact
 For any issues, contact me at my email:
