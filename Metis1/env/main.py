@@ -9,7 +9,6 @@ import smtplib
 import os
 
 app = Flask(__name__)
-app.secret_key = 'Pra@123'
 
 # configureing my sql initials to start with flask
 app.config['MYSQL_HOST'] = 'localhost'
