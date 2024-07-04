@@ -43,7 +43,7 @@ userloginbtn.addEventListener('click', (event) => {
         .then((UserCredential) => {
             showMessage('Login Succesfull', 'You are Logined as Admin. Remember to signout completly after work.');
             setTimeout(() => {
-                window.location.replace('user')
+                window.location.replace('admin')
             }, 2000)
         })
         .catch((error) => {

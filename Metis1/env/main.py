@@ -21,7 +21,16 @@ mysql = MySQL(app)
 # the landing page url
 @app.route("/") 
 def index(): 
-    return render_template('index.html')
+    if request.method == "POST":
+        try:
+            login_data = request.form
+            email = login_data.get('email')
+            password = login_data.get('password')
+            return render_template('indx.html')
+        except Exception as e:
+            print(f'Error {e}')
+            return render_template('student-login.html')
+    return render_template('student-login.html')
 
 # function to submit query to database 
 @app.route("/query", methods=['POST']) 
@@ -49,15 +58,15 @@ def login():
     return render_template('login.html')
 
 # user page which shows the query-data   
-@app.route('/user')
-def user():
+@app.route('/admin')
+def admin():
     cur = mysql.connection.cursor()
     sql_query = 'Select * from userissues'
     cur.execute(sql_query)
     mysql.connection.commit()
     data = cur.fetchall() # fetching the data from the database.
     cur.close()
-    return render_template('user.html', query_data = data)
+    return render_template('admin.html', query_data = data)
 
 @app.route('/delete' , methods=['POST'])
 def delete():
