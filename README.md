@@ -1,5 +1,9 @@
-# Admin-Query
+# Admin-Query-Web-App
+https://github.com/user-attachments/assets/24b8cef1-91a3-4344-af04-50cb430a84b1
+
 A real-world web app for IIT Gandhinagar students to give in their queries, which will be looked at and resolved by an admin.
+
+
 
 ## Table of Contents
 
