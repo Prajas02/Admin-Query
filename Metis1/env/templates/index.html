@@ -38,4 +38,14 @@
   </div>
 </div>
 
+<!-- javascript for making the logout button visible-->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.location.href.indexOf('/') !== -1) {
+      document.getElementById('loginbtn').style.cssText = "display: block;"
+    }
+  })
+</script>
 {%endblock%}
+
+

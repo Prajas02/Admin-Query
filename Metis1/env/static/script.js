@@ -16,29 +16,6 @@ function showMessage(elem_id, messageTitle, messageBody) {
     elem_id.classList.add('active')
 }
 
-// submit popup for student-login page
-const loginPopup = document.getElementById('loginPopup')
-const studentLoginBtn = document.getElementById('studentLoginBtn')
-studentLoginBtn.addEventListener('click' , ()=>{
-    console.log("hello world")
-    var email = document.getElementById('studentEmail').value
-    var password = document.getElementById('studentPassword').value
-
-    if (email == "" || password == ""){
-        showMessage(loginPopup , "Incomplete Login Credentials" , "Please Enter Your Correct Login Credentials")
-    }
-    else{
-        $.ajax({
-            url: '/',
-            type: 'POST',
-            data: {
-                'email' : email,
-                'password' : password
-            }
-        })
-    }
-})
-
 // submit popup for home-query page
 const submitPopup = document.getElementById('submitPopup')
 const submit = document.getElementById('submit')

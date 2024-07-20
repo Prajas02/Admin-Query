@@ -6,7 +6,6 @@ from flask_mysqldb import MySQL
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import smtplib
-import os
 
 app = Flask(__name__)
 
@@ -21,16 +20,7 @@ mysql = MySQL(app)
 # the landing page url
 @app.route("/") 
 def index(): 
-    if request.method == "POST":
-        try:
-            login_data = request.form
-            email = login_data.get('email')
-            password = login_data.get('password')
-            return render_template('indx.html')
-        except Exception as e:
-            print(f'Error {e}')
-            return render_template('student-login.html')
-    return render_template('student-login.html')
+    return render_template('index.html')
 
 # function to submit query to database 
 @app.route("/query", methods=['POST']) 
@@ -68,6 +58,7 @@ def admin():
     cur.close()
     return render_template('admin.html', query_data = data)
 
+# delete the records
 @app.route('/delete' , methods=['POST'])
 def delete():
     try:
@@ -77,11 +68,12 @@ def delete():
         cur.execute(sql_query , (int(id),))
         mysql.connection.commit()
         cur.close()
-        return redirect('user')
+        return redirect('admin')
     except Exception as e:
         print(f'error{e}')
-        return redirect('user')
+        return redirect('admin')
     
+ # send the resolve message   
 @app.route('/resolveMessage' , methods = ['POST'])
 def resolveMessage():
     try:
@@ -115,10 +107,11 @@ def resolveMessage():
         smtp.sendmail(from_addr="IITGN@gmail.com" , to_addrs=to , msg=msg.as_string())
         smtp.quit()
         
-        return redirect('user')
+        return redirect('admin')
     except Exception as e:
         print(f'error {e}')
-        return redirect('user')
+        return redirect('admin')
 
-if __name__ == '__main__':
+# run the app
+if __name__ == '__main__': 
     app.run(debug=True)
